@@ -1,0 +1,26 @@
+Element	CSS Selector
+Header-container:			app-header > header
+Logo:						#homeIcon
+Home:						#nav-link-home
+Profile:					#nav-link-profile
+New post:					#nav-link-new-post
+Search-bar:					#search-bar
+Sign-out-alt:				.fa-sign-out-alt
+Profile-image-source:		.profile-image-source
+Upload-img:					#upload-img
+User-profile-name:			h2
+User-profile-edit:			.fa-user-edit
+Profile-stat-posts:			.profile-stat-count
+Profile-stat-followers:		strong:contains('followers')
+Profile-stat-following:		strong:contains('following')
+User-profile-name-small:	strong:contains('slavlzrv')
+Radio-btn-All:				input[type='radio']:nth-of-type(1)
+Radio-btn-Public:			input[type='radio']:nth-of-type(2)
+Radio-btn-Private:			input[type='radio']:nth-of-type(3)
+New-post-btn:				a[href='/posts/create'] > .fa-plus-square
+New-post-text:				div:contains('New post')
+Posts-not-found-container:	.posts-not-found-container
+No-post-text:				h3:contains('No posts here')
+Footer:						footer.d-none.d-md-block
+Collapse:					#navbarColor01.collapse
+Not -Collapse:				#navbarColor01:not(.collapse)
