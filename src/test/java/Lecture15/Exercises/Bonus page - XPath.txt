@@ -1,0 +1,7 @@
+Element	XPath
+Username:					//input[@formcontrolname='username']
+Email:						//input[@formcontrolname='email']
+Password:					//input[@formcontrolname='password']
+Confirm Password Label:		//label[contains(text(),'Confirm password')]
+Public Info:				//textarea[@formcontrolname='publicInfo']
+Save Button:				//button[text()='Save']
