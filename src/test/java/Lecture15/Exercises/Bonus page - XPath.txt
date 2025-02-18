@@ -1,7 +1,7 @@
-Element:											XPath:
+Element:							XPath:
 
 Username:					//input[@type='text' and @formcontrolname='username']
-Email:						//input[@formcon//input[@type='text' and @formcontrolname='email']trolname='email']
+Email:						//input[@type='text' and @formcontrolname='email']
 Password:					//input[@type='password' and @formcontrolname='password']
 Confirm Password Label:		//input[@type='password' and @formcontrolname='confirmPassword']
 Public Info:				//textarea[@formcontrolname='publicInfo']
