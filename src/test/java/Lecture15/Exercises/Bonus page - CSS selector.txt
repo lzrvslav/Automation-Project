@@ -1,8 +1,8 @@
-Element:										CSS Selector:
+Element:							CSS Selector:
 
 Username:					input.form-control[formcontrolname='username']
 Email:						input.form-control[formcontrolname='email']
 Password:					input.form-control[formcontrolname='password']
-Confirm Password Label:		input.form-control[formcontrolname='confirmPassword']
+Confirm Password Label:	    input.form-control[formcontrolname='confirmPassword']
 Public Info:				textarea.form-control[formcontrolname='publicInfo']
 Save Button:				button.btn.btn-primary[type='submit']
