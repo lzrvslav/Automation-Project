@@ -1,0 +1,28 @@
+Element:							CSS Selector:
+
+Header-container:			header.header-container
+Logo:						img[src*='Iskillo-logo.png']
+Home:						a#nav-link-home
+Profile:					#nav-link-profile
+New post:					a.nav-link[href='/posts/create']
+Search-bar:					input[type='text'][id='search-bar']
+Sign-out-alt:				i.fas.fa-sign-out-alt
+Profile-image-source:		img[alt='Profile Picture']
+Upload-img:					input[type='file'][id='upload-img']
+User-profile-name:			h2:contains('slavlzrv')
+User-profile-edit:			fa-user-edit
+Profile-stat-posts:			strong.profile-stat-count
+Profile-stat-followers:		li.profile-stat-count.pointer[id='followers']
+Profile-stat-following:		li#following
+User-profile-name-small:	h2:contains('slavlzrv')
+Radio-btn-All:				input[type='radio'] + label:contains('All')
+Radio-btn-Public:			input[type='radio'] + label:contains('Public
+Radio-btn-Private:			input[type='radio'] + label:contains('Private
+New-post-btn:				i.far.fa-plus-square.fa-lg
+Posts-not-found-container:	.posts-not-found-container
+Footer:						footer.d-none.d-md-block
+Collapse:					div#navbarColor01.navbar-collapse.navbar-container
+Not -Collapse:				div#navbarColor01.navbar-collapse.navbar-container.collapse
+
+Modal-container-followers:	CSS selectors cannot match text content directly
+Modal-container-following:	CSS selectors cannot match text content directly
