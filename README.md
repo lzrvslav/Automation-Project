@@ -16,7 +16,10 @@ Key Features
  - Automates at least five distinct test scenarios covering core functionalities of the Skillo website.
  - All tests are configured to execute via the testng.xml file
  - Tests run in the Google Chrome browser.
- - On test failure, screenshots are automatically captured and stored in the screenshots/ directory.
+ - On test failure, test reports are automatically generated and saved in the reports/ directory.
+ - Additionally, screenshots are captured upon failure and stored in the screenshots/ directory.
+
+
 
 Test Scenarios:
 
