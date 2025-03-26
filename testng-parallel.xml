@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="ParallelSuite" parallel="methods" thread-count="4">
+    <test name="LoginAndSignupSuite">
+        <classes>
+            <class name="SignUpTests"/>
+            <class name="LoginTests"/>
+            <class name="UserEditTests"/>
+            <class name="FollowTests"/>
+            <class name="LogOutTests"/>
+        </classes>
+    </test>
+</suite>
