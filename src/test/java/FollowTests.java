@@ -4,14 +4,6 @@ import org.testng.annotations.Test;
 
 public class FollowTests extends TestObject {
 
-    /**
-     * Test flow:
-     * 1. Log in with valid credentials.
-     * 2. Use the header search field to find "MARIELKATA" and click Follow.
-     * 3. Navigate to MARIELKATA's profile (user ID 32) and verify that the "Unfollow" button exists.
-     * 4. Unfollow the user by clicking the "Unfollow" button.
-     * 5. Verify that the profile now shows the button in "Follow" state.
-     */
     @Test
     public void followUserMarielkata() {
         WebDriver webDriver = getDriver();
@@ -30,7 +22,7 @@ public class FollowTests extends TestObject {
         follow.searchUser("MARIELKATA");
         follow.clickFollowButton();
 
-        // Optional: Wait briefly for the follow action to be processed.
+        // Follow action to be processed.
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

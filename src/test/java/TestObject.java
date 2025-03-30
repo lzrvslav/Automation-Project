@@ -88,7 +88,6 @@ public class TestObject {
 
         String[] fileList = directory.list();
         if (fileList != null && fileList.length == 0){
-            // MODIFIED: Corrected formatting to display the directory path.
             System.out.printf("All files are deleted in Directory: %s%n", directoryPath);
         } else {
             System.out.printf("Unable to delete the files in Directory: %s%n", directoryPath);

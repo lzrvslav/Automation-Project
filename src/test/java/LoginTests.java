@@ -132,6 +132,7 @@ public class LoginTests extends TestObject {
 
         // Click 'Login' link in the header
         header.clickLoginLinkWithHandle();
+
         // Verify login page is loaded.
         login.verifyLoginPageLoaded();
     }

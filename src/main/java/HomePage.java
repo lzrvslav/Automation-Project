@@ -15,7 +15,6 @@ public class HomePage extends NavigationAndUrlValidation {
     }
 
     public void navigateTo(){
-        //this.webDriver.get(PAGE_URL);
         super.navigateTo(webDriver, PAGE_URL);
     }
 }

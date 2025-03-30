@@ -24,7 +24,6 @@ public class Header {
     @FindBy(id = "nav-link-new-post")
     private WebElement newPostLink;
 
-    // NEW: Arrow for logout (using the XPath you provided)
     @FindBy(xpath = "//a[.//i[contains(@class, 'fa-sign-out-alt')]]")
     private WebElement logoutLink;
 
@@ -65,29 +64,4 @@ public class Header {
         }
         element.click();
     }
-
-/*
-    // logic demo for multiple elements with same actions
-    public void clickMenuLink(String menuItem){
-        WebElement elementToClick;
-        switch (menuItem.toLowerCase()){
-            case "login":
-                elementToClick = this.loginLink;
-                break;
-            case "profile":
-                elementToClick = this.profileLink;
-                break;
-            case "home":
-                elementToClick = this.homeLink;
-                break;
-            default:
-                System.out.println(menuItem + " menu option is not supported");
-                return;
-        }
-        WebDriverWait pageLinkWait = new WebDriverWait(this.webDriver, Duration.ofSeconds(3));
-        pageLinkWait.until(ExpectedConditions.elementToBeClickable(elementToClick));
-        elementToClick.click();
-    }
-
- */
 }

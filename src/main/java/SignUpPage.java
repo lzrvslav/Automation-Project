@@ -89,7 +89,6 @@ public class SignUpPage extends NavigationAndUrlValidation {
         birthDateField.sendKeys(dateString);
     }
 
-    // Overloaded method: populate birth date with a given string.
     public void populateBirthDate(String dateString) {
         birthDateField.click();
         birthDateField.clear();
@@ -141,8 +140,6 @@ public class SignUpPage extends NavigationAndUrlValidation {
         }
         return message;
     }
-
-    // New helper methods to verify that the input fields become "invalid" by checking their class attribute.
 
     public boolean isEmailInvalid() {
         try {

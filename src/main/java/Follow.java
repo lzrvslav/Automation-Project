@@ -20,7 +20,6 @@ public class Follow {
         WebElement searchBar = webDriver.findElement(By.id("search-bar"));
         searchBar.clear();
         searchBar.sendKeys(username);
-        // Wait until the dropdown suggestion appears and the Follow button is visible.
         new WebDriverWait(webDriver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(followButtonLocator));
     }
@@ -30,10 +29,8 @@ public class Follow {
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(followButtonLocator));
         try {
             button.click();
-            // Wait until the button becomes stale (i.e. the DOM updates).
             wait.until(ExpectedConditions.stalenessOf(button));
         } catch (StaleElementReferenceException e) {
-            // If a stale element exception occurs, assume the click succeeded.
         }
     }
 }

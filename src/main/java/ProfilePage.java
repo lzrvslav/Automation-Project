@@ -19,7 +19,6 @@ public class ProfilePage {
     @FindBy(xpath = "//*[@class='col-4 app-post ng-star-inserted']")
     private List<WebElement> postAppPostItem;
 
-    // Locator for the "Unfollow" button when the user is followed.
     private By unfollowButtonLocator = By.xpath("//button[contains(@class, 'profile-edit-btn') and normalize-space(text())='Unfollow']");
 
     public ProfilePage(WebDriver webDriver) {
@@ -55,9 +54,6 @@ public class ProfilePage {
         return true;
     }
 
-    /**
-     * Waits for the "Unfollow" button to be visible and returns true if its text equals "Unfollow".
-     */
     public boolean isUserFollowed() {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
         try {
@@ -68,10 +64,6 @@ public class ProfilePage {
         }
     }
 
-    /**
-     * Unfollows the user if the "Unfollow" button is present.
-     * Waits until the "Unfollow" button is no longer visible.
-     */
     public void unfollowUser() {
         if (isUserFollowed()) {
             WebElement unfollow = webDriver.findElement(unfollowButtonLocator);
@@ -81,10 +73,6 @@ public class ProfilePage {
         }
     }
 
-    /**
-     * Checks if the profile shows the "Follow" button (i.e. the user is not followed)
-     * using the given locator.
-     */
     public boolean isUserUnfollowed() {
         By followStateButtonLocator = By.xpath("//button[contains(@class, 'profile-edit-btn') and normalize-space(text())='Follow']");
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));

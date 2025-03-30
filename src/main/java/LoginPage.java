@@ -87,24 +87,20 @@ public class LoginPage extends NavigationAndUrlValidation {
         }
     }
 
-    // Get CSS class of username field
     public String getUsernameFieldClass() {
         return this.usernameField.getAttribute("class");
     }
 
-    // Get CSS class of password field
     public String getPasswordFieldClass() {
         return this.passwordField.getAttribute("class");
     }
 
-    // Verify the login page is loaded.
     public void verifyLoginPageLoaded() {
         navigateTo();
         Assert.assertTrue(isUrlLoaded(), "The login page is not loaded");
         Assert.assertEquals(getSignInElementText(), "Sign in", "Login form is not loaded");
     }
 
-    // Populate credentials and click the sign in button.
     public void loginWithCredentials(String username, String password) {
         populateUsername(username);
         populatePassword(password);
