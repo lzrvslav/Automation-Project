@@ -27,7 +27,7 @@ Test Scenarios:
  - SignUpTests: Validates user registration functionality.
  - LoginTests: Verifies user login and authentication processes.
  - UserEditTests: Tests the ability to edit user profile information.
- - FollowTests: Checks the functionality of following and unfollowing users.
+ - FollowUnfollowTests: Checks the functionality of following and unfollowing users.
  - LogOutTests: Ensures that users can successfully log out of their accounts.
 
 Running the Tests:

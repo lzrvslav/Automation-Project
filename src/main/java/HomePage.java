@@ -1,6 +1,11 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * Page object for the Home page:
+ * - Provides navigation and URL validation for the main feed of posts
+ */
+
 public class HomePage extends NavigationAndUrlValidation {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4300/posts/all";
     private final WebDriver webDriver;

@@ -14,16 +14,21 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
+/**
+ * Base class for all test classes:
+ * - Handles WebDriver setup and tear-down across different browsers
+ * - Configures implicit and page load timeouts
+ * - Manages report and screenshot directories
+ * - Captures screenshots on test failure
+ */
 
 public class TestObject {
 
     public static final String TEST_RESOURCES_DIR = "src\\test\\resources\\";
     public static final String REPORTS_DIR = TEST_RESOURCES_DIR.concat("reports\\");
-    // public static final String DOWNLOAD_DIR = TEST_RESOURCES_DIR.concat("download\\");
     public static final String SCREENSHOT_DIR = TEST_RESOURCES_DIR.concat("screenshot\\");
 
     private WebDriver webDriver;
@@ -63,11 +68,6 @@ public class TestObject {
         takeScreenshot(testResult);
         quitDriver();
     }
-
-    @AfterSuite
-//    protected void deleteDownloadedFiles() throws IOException{
-//        cleanDirectory(DOWNLOAD_DIR);
-//    }
 
     protected WebDriver getDriver() {
         return this.webDriver;

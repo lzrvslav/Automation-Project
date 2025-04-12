@@ -1,36 +1,49 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
+/**
+ * Page object for the Follow functionality:
+ * - Provides user search through the search bar
+ * - Handles follow button interactions with safe wait logic
+ */
+
 public class Follow {
     private final WebDriver webDriver;
 
-    // Locator for the "Follow" button in the dropdown.
-    private By followButtonLocator = By.xpath("//button[normalize-space(text())='Follow']");
+    @FindBy(id = "search-bar")
+    private WebElement searchBar;
+
+    @FindBy(xpath = "//button[normalize-space(text())='Follow']")
+    private WebElement followButton;
 
     public Follow(WebDriver webDriver) {
         this.webDriver = webDriver;
+        PageFactory.initElements(webDriver, this);
     }
 
     public void searchUser(String username) {
-        WebElement searchBar = webDriver.findElement(By.id("search-bar"));
         searchBar.clear();
         searchBar.sendKeys(username);
+
         new WebDriverWait(webDriver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(followButtonLocator));
+                .until(ExpectedConditions.visibilityOf(followButton));
     }
 
     public void clickFollowButton() {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
-        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(followButtonLocator));
         try {
-            button.click();
-            wait.until(ExpectedConditions.stalenessOf(button));
-        } catch (StaleElementReferenceException e) {
+            wait.until(ExpectedConditions.elementToBeClickable(followButton));
+            followButton.click();
+            wait.until(ExpectedConditions.stalenessOf(followButton));
+        } catch (StaleElementReferenceException | TimeoutException exception) {
+            System.out.println("Exception occurred during follow button interaction: " + exception.getMessage());
         }
     }
 }

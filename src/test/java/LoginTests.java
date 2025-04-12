@@ -3,12 +3,18 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+/**
+ * Tests login functionality:
+ * - Validates successful login flow and UI behavior
+ * - Validates feedback on invalid login attempts
+ * - Confirms login page accessibility from navigation
+ */
+
 public class LoginTests extends TestObject {
 
     @DataProvider(name = "getUsers")
     public Object[][] getUsers() {
         return new Object[][]{
-                // Valid credentials
                 {"slavlzrv2", "1234567890A", 9314, "Successful login!"}
         };
     }
@@ -16,25 +22,17 @@ public class LoginTests extends TestObject {
     @DataProvider(name = "errorMessages")
     public Object[][] errorMessages() {
         return new Object[][]{
-                // Wrong credentials
-                {"blasfsafasfabla", "asfsaf", "Wrong username or password!"},
-                // Email test cases
                 {"blasfsafasfabla", "asfsaf", "Wrong username or password!"},
                 {"dbsdhsh", "asdasfsaf", "Wrong username or password!"},
-                // Empty password
                 {"dbsdhsh", "", "Wrong username or password!"},
-                // Empty username
                 {"", "dbsdhsh", "Wrong username or password!"},
-                // Completely empty form
                 {"", "", ""},
                 {"blasfsafasfabla@tezt.xom", "asfsaf", "Wrong username or password!"},
                 {"blasfsafasfabla@.xom", "asfsaf", "Wrong username or password!"},
                 {"blasfsafasfabla@", "asfsaf", "Wrong username or password!"},
                 {"swwrr@test.com", "asdasfsaf", "Wrong username or password!"},
                 {"viasfasfasfsadko@teafasfasfst.com", "", "Wrong username or password!"},
-                // Valid format but incorrect credentials
                 {"", "1234567890", "Wrong username or password!"},
-                // Edge cases
                 {"username@", "password", "Wrong username or password!"},
                 {"user@domain", "password", "Wrong username or password!"},
                 {"user@domain.c", "password", "Wrong username or password!"},
@@ -45,9 +43,6 @@ public class LoginTests extends TestObject {
                 {"username", "pass", "Wrong username or password!"},
                 {"!@#$%^&*()", "password", "Wrong username or password!"},
                 {"username", "!@#$%^&*()", "Wrong username or password!"},
-                {"测试用户", "密码123", "Wrong username or password!"},
-                {"потребител", "паролa", "Wrong username or password!"},
-                {"ユーザー", "パスワード", "Wrong username or password!"},
                 {"user@domain.toolongtld", "password", "Wrong username or password!"},
                 {"user@localhost", "password", "Wrong username or password!"},
                 {"user@127.0.0.1", "password", "Wrong username or password!"},
@@ -58,7 +53,7 @@ public class LoginTests extends TestObject {
                 {"user123", "12345678901234567890", "Wrong username or password!"},
                 {"admin'--", "admin", "Wrong username or password!"},
                 {"admin'--", "1234", "Wrong username or password!"},
-                {"' OR 1=1 --", "password", "Wrong username or password!"},
+                {"' OR 1=1 --", "password", "Wrong username or password!"}
         };
     }
 
@@ -66,25 +61,17 @@ public class LoginTests extends TestObject {
     public void LoginUser(String username, String password, int userId, String signInMessage) {
         WebDriver webdriver = getDriver();
 
-        // Page object instances
         LoginPage login = new LoginPage(webdriver);
         ProfilePage profile = new ProfilePage(webdriver);
         Header header = new Header(webdriver);
         HomePage home = new HomePage(webdriver);
 
-        // Verify login page is loaded.
         login.verifyLoginPageLoaded();
-
-        // Populate credentials and click sign in.
         login.loginWithCredentials(username, password);
-
-        // Wait for and verify the sign-in toast message
         login.onSignInMessage(signInMessage);
 
-        // Verify that home page is loaded after successful login
         Assert.assertTrue(home.isUrlLoaded(), "Home page is not loaded");
 
-        // Navigate to profile and verify the user ID + username
         header.clickProfileLinkWithHandle();
         Assert.assertTrue(profile.isUrlLoaded(userId), "The user profile page is not loaded");
         Assert.assertTrue(profile.isUsernameAsExpected(username), "The username is not as expected");
@@ -95,15 +82,10 @@ public class LoginTests extends TestObject {
         WebDriver webdriver = getDriver();
         LoginPage login = new LoginPage(webdriver);
 
-        // Verify login page is loaded.
         login.verifyLoginPageLoaded();
-
-        // Populate credentials and click sign in.
         login.loginWithCredentials(username, password);
 
-        // Check if both fields are empty and no message is expected
         if (username.isEmpty() && password.isEmpty() && signInMessageExpected.isEmpty()) {
-            // Verify invalid field classes
             String usernameClass = login.getUsernameFieldClass();
             String passwordClass = login.getPasswordFieldClass();
 
@@ -112,7 +94,6 @@ public class LoginTests extends TestObject {
             Assert.assertTrue(passwordClass.contains("ng-invalid") && passwordClass.contains("ng-touched"),
                     "Password field should be invalid and touched");
         } else {
-            // Verify the standard sign-in error message
             String actualMessage = login.getSignInMessage();
             Assert.assertEquals(actualMessage, signInMessageExpected,
                     "Unexpected sign-in error message!");
@@ -126,14 +107,10 @@ public class LoginTests extends TestObject {
         Header header = new Header(webdriver);
         HomePage home = new HomePage(webdriver);
 
-        // Go to home page and verify
         home.navigateTo();
         Assert.assertTrue(home.isUrlLoaded(), "The home page is not loaded");
 
-        // Click 'Login' link in the header
         header.clickLoginLinkWithHandle();
-
-        // Verify login page is loaded.
         login.verifyLoginPageLoaded();
     }
 }

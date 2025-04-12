@@ -1,11 +1,19 @@
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
+
+/**
+ * Page object for the user profile edit page:
+ * - Handles the editing of user information (username, email, password, public info, etc.)
+ * - Provides methods for navigating to the page, opening the profile edit modal,
+ *   and interacting with form fields to update user details
+ * - Offers functionality to save the changes and interact with page elements
+ */
 
 public class UserEditPage extends LoginPage {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/";
@@ -45,83 +53,48 @@ public class UserEditPage extends LoginPage {
     private WebElement modifyYourProfileTitle;
 
     public UserEditPage(WebDriver webDriver) {
-        super(webDriver);  // calls LoginPage constructor
+        super(webDriver);
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
     }
 
     public void navigateTo() {
-        try {
-            super.navigateTo(webDriver, PAGE_URL);
-        } catch (Exception e) {
-            System.out.println("Error navigating to User Edit Page: " + e.getMessage());
-        }
+        super.navigateTo(webDriver, PAGE_URL);
     }
 
     public void openEditProfileModal() {
-        try {
-            WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(this.userEditIcon));
-            this.userEditIcon.click();
-            // Wait until the modal is visible
-            wait.until(ExpectedConditions.visibilityOf(this.modifyYourProfileTitle));
-        } catch (TimeoutException te) {
-            System.out.println("Timeout while opening edit profile modal: " + te.getMessage());
-        } catch (Exception e) {
-            System.out.println("Error in openEditProfileModal: " + e.getMessage());
-        }
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(userEditIcon));
+        userEditIcon.click();
+        wait.until(ExpectedConditions.visibilityOf(modifyYourProfileTitle));
     }
 
     public void populateEditUsername(String newUsername) {
-        try {
-            editUsernameField.clear();
-            editUsernameField.sendKeys(newUsername);
-        } catch (Exception e) {
-            System.out.println("Error populating edit username: " + e.getMessage());
-        }
+        editUsernameField.clear();
+        editUsernameField.sendKeys(newUsername);
     }
 
     public void populateEditEmail(String newEmail) {
-        try {
-            editEmailField.clear();
-            editEmailField.sendKeys(newEmail);
-        } catch (Exception e) {
-            System.out.println("Error populating edit email: " + e.getMessage());
-        }
+        editEmailField.clear();
+        editEmailField.sendKeys(newEmail);
     }
 
     public void populateEditPassword(String newPassword) {
-        try {
-            editPasswordField.clear();
-            editPasswordField.sendKeys(newPassword);
-        } catch (Exception e) {
-            System.out.println("Error populating edit password: " + e.getMessage());
-        }
+        editPasswordField.clear();
+        editPasswordField.sendKeys(newPassword);
     }
 
     public void populateEditConfirmPassword(String newPassword) {
-        try {
-            editConfirmPasswordField.clear();
-            editConfirmPasswordField.sendKeys(newPassword);
-        } catch (Exception e) {
-            System.out.println("Error populating edit confirm password: " + e.getMessage());
-        }
+        editConfirmPasswordField.clear();
+        editConfirmPasswordField.sendKeys(newPassword);
     }
 
     public void populateEditPublicInfo(String publicInfo) {
-        try {
-            editPublicInfoField.clear();
-            editPublicInfoField.sendKeys(publicInfo);
-        } catch (Exception e) {
-            System.out.println("Error populating edit public info: " + e.getMessage());
-        }
+        editPublicInfoField.clear();
+        editPublicInfoField.sendKeys(publicInfo);
     }
 
     public void clickSave() {
-        try {
-            saveButton.click();
-        } catch (Exception e) {
-            System.out.println("Error clicking save button: " + e.getMessage());
-        }
+        saveButton.click();
     }
 }

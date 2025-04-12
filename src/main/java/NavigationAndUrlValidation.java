@@ -5,6 +5,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+/**
+ * Base utility class for navigation and URL validation:
+ * - Handles page navigation using provided URL
+ * - Waits for page URL to match expected URL with timeout protection
+ */
+
 public class NavigationAndUrlValidation {
 
     protected boolean isUrlLoaded(WebDriver webDriver, String PAGE_URL){

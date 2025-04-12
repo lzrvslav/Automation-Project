@@ -8,7 +8,7 @@
             <class name="SignUpTests"/>
             <class name="LoginTests"/>
             <class name="UserEditTests"/>
-            <class name="FollowTests"/>
+            <class name="FollowUnfollowTests"/>
             <class name="LogOutTests"/>
         </classes>
     </test>

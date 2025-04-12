@@ -9,6 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
+/**
+ * Page object for the user profile page:
+ * - Handles user-specific URL loading and username validation
+ * - Provides methods to verify and toggle follow/unfollow state
+ * - Supports retrieval and interaction with post and button elements
+ */
+
 public class ProfilePage {
     public static final String PAGE_URL_WITHOUT_USER_ID = "http://training.skillo-bg.com:4300/users/";
     private final WebDriver webDriver;
@@ -19,7 +26,7 @@ public class ProfilePage {
     @FindBy(xpath = "//*[@class='col-4 app-post ng-star-inserted']")
     private List<WebElement> postAppPostItem;
 
-    private By unfollowButtonLocator = By.xpath("//button[contains(@class, 'profile-edit-btn') and normalize-space(text())='Unfollow']");
+    private final By unfollowButtonLocator = By.xpath("//button[contains(@class, 'profile-edit-btn') and normalize-space(text())='Unfollow']");
 
     public ProfilePage(WebDriver webDriver) {
         this.webDriver = webDriver;

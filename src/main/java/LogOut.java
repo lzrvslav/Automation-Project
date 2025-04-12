@@ -9,6 +9,12 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
+/**
+ * Page object for the Logout process and login redirect:
+ * - Verifies redirection to the login page after logout
+ * - Detects logout success toast messages and page load
+ */
+
 public class LogOut extends NavigationAndUrlValidation {
 
     public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/login";
@@ -33,6 +39,11 @@ public class LogOut extends NavigationAndUrlValidation {
 
     public boolean isUrlLoaded() {
         return super.isUrlLoaded(webDriver, PAGE_URL);
+    }
+
+    public void waitForLoginPageToLoad() {
+        WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.urlToBe(PAGE_URL));
     }
 
     public void onLogOutMessage(String message) {
