@@ -7,14 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-/**
- * Page object for the user profile edit page:
- * - Handles the editing of user information (username, email, password, public info, etc.)
- * - Provides methods for navigating to the page, opening the profile edit modal,
- *   and interacting with form fields to update user details
- * - Offers functionality to save the changes and interact with page elements
- */
-
 public class UserEditPage extends LoginPage {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/";
     private final WebDriver webDriver;

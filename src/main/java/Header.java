@@ -9,12 +9,6 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-/**
- * Page object for the application's header navigation:
- * - Provides interaction with main navigation links (home, profile, login, logout, new post)
- * - Includes wait handling for element visibility before clicking
- */
-
 public class Header {
     private final WebDriver webDriver;
 

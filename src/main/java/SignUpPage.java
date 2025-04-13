@@ -14,13 +14,6 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * Page object for the sign-up page:
- * - Handles the user registration form by interacting with input fields (username, email, password, etc.)
- * - Supports data population using dynamic/random data (like random username, email, and password)
- * - Provides validation methods to check the state of the input fields (valid or invalid input)
- */
-
 public class SignUpPage extends NavigationAndUrlValidation {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/register";
     private final WebDriver webDriver;

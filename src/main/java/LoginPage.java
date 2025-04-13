@@ -8,12 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.time.Duration;
 
-/**
- * Page object for the Login page:
- * - Provides login form interaction and validation logic
- * - Supports navigation, field population, and login flow assertions
- */
-
 public class LoginPage extends NavigationAndUrlValidation {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/login";
     private final WebDriver webDriver;

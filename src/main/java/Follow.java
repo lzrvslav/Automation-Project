@@ -8,12 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-/**
- * Page object for the Follow functionality:
- * - Provides user search through the search bar
- * - Handles follow button interactions with safe wait logic
- */
-
 public class Follow {
     private final WebDriver webDriver;
 
